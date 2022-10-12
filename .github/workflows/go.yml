@@ -28,8 +28,12 @@ jobs:
         cd src
         go test -v ./...
         
+  build-docker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: Build the Docker image
-      needs: [Build, Test]
       run: |
         echo "${{ secrets.DOCKER_PW }}" | docker login  --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
         docker build . --file Dockerfile.production --tag go-maths-app:$(date +%s)
