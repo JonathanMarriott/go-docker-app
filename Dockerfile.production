@@ -19,5 +19,5 @@ COPY src/conf/ conf/
 COPY src/views/ views/
 COPY --from=builder "$APP_HOME"/mathapp $APP_HOME
 
-EXPOSE 8010
+EXPOSE 8080
 CMD ["./mathapp"]

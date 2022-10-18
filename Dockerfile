@@ -9,5 +9,5 @@ ENV APP_HOME /go/src/mathapp
 RUN mkdir -p "$APP_HOME"
 
 WORKDIR "$APP_HOME"
-EXPOSE 8010
+EXPOSE 8080
 CMD ["bee", "run"]
